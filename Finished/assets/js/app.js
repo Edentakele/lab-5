@@ -78,8 +78,21 @@ function clearAllTasks() {
 
 
 // Filter tasks function definition 
+
 function filterTasks(e) {
 
+    let filter = (e.target.value).toUpperCase();
+    const li = taskList.querySelectorAll('li')
+    li.forEach(item => {
+        let txtValue = (item.textContent).toUpperCase();
+        if (txtValue.indexOf(filter) > -1) {
+            item.style.display = "block"
+        } else {
+            item.style.display = "none";
+        }
+    });
+
+}
     /*  
     Instruction for Handling the Search/filter 
     
@@ -93,7 +106,7 @@ function filterTasks(e) {
     
     */
 
-}
+
 
 // Remove Task function definition 
 function removeTask(e) {
